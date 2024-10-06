@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products by Type</title>
+</head>
+<body>
+    <h1>productos</h1>
+   
+    <!-- Formulario con lista desplegable para seleccionar el tipo -->
+    <form method="GET" action="{% url 'productos' %}">
+        <label for="product-type">Tipo: </label>
+        <select name="tipo" id="product-type">
+            <option value="">--Selecciona el tipo--</option>
+            <option value="lacteos">Lacteos</option>
+            <option value="bebidas">Bebidas</option>
+            <option value="granos">Granos</option>
+            <option value="embutidos">Embutidos</option>
+            <!-- Añade más tipos de productos según sea necesario -->
+        </select>
+        <button type="submit">Filter</button>
+    </form>
+
+    <!-- Mostrar los productos del tipo seleccionado -->
+    <h2>{{ selected_type }}</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.1 }}</td>  <!-- product[1] es el campo 'name' -->
+                <td>{{ product.2 }}</td>  <!-- product[2] es el campo 'description' -->
+                <td>{{ product.3 }}</td>  <!-- product[3] es el campo 'price' -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
