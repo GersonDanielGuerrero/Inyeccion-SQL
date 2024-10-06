@@ -6,7 +6,8 @@
     <title>Products by Type</title>
 </head>
 <body>
-    <h1>productos</h1>
+    <div class="contenedor">
+    <h1>Productos</h1>
    
     <!-- Formulario con lista desplegable para seleccionar el tipo -->
     <form method="GET" action="{% url 'productos' %}">
@@ -37,11 +38,45 @@
             <tr>
                 <td>{{ product.1 }}</td>  <!-- product[1] es el campo 'name' -->
                 <td>{{ product.2 }}</td>  <!-- product[2] es el campo 'description' -->
-                <td>{{ product.3 }}</td>  <!-- product[3] es el campo 'price' -->
+                <td>${{ product.3|floatformat:2 }}</td> <!-- product[3] es el campo 'price', debe tener dos decimales -->
             </tr>
             {% endfor %}
         </tbody>
     </table>
     <p>{{ error_message }}</p>
+
+    </div>
+    <style>
+    *{
+        font-family: Arial, sans-serif;
+    }
+    .contenedor{
+        margin:auto;
+        margin-top: 10vh;
+        width: 70%;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        -ms-flex-align: center;
+    }
+    .contenedor table{
+        width: 100%;
+        max-width: 600px;
+        margin-top: 20px;
+    }
+    table th{
+        background-color: #f2f2f2;
+    }
+    table th, table td{
+        padding: 5px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+    p{
+        margin-top: 20px;
+        color:red;
+    }
+    </style>
 </body>
 </html>

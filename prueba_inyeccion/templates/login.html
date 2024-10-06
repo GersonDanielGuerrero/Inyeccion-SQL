@@ -6,7 +6,8 @@
     <title>Login</title>
 </head>
 <body>
-    <h1>Login</h1>
+    <div class="contenedor">
+    <h1>Iniciar sesión</h1>
     <form method="POST">
         {% csrf_token %}
         <label for="username">Usuario:</label>
@@ -16,5 +17,34 @@
         <button type="submit">Iniciar sesion</button>
     </form>
     <p>{{ error_message }}</p>
+    </div>
 </body>
+<style>
+    .contenedor{
+        margin:auto;
+        margin-top: 20vh;
+        width: 70%;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        -ms-flex-align: center;
+    }
+    form{
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        
+    }
+    label{
+        margin-bottom: 10px;
+    }
+    input{
+        margin-bottom: 10px;
+    }
+    button{
+        margin-bottom: 10px;
+    }
+</style>
 </html>
