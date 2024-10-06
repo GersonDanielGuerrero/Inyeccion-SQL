@@ -19,7 +19,7 @@
             <option value="embutidos">Embutidos</option>
             <!-- Añade más tipos de productos según sea necesario -->
         </select>
-        <button type="submit">Filter</button>
+        <button type="submit">Filtrar</button>
     </form>
 
     <!-- Mostrar los productos del tipo seleccionado -->
@@ -27,9 +27,9 @@
     <table>
         <thead>
             <tr>
-                <th>Product Name</th>
-                <th>Description</th>
-                <th>Price</th>
+                <th>Producto</th>
+                <th>Descripción</th>
+                <th>Precio</th>
             </tr>
         </thead>
         <tbody>
@@ -42,5 +42,6 @@
             {% endfor %}
         </tbody>
     </table>
+    <p>{{ error_message }}</p>
 </body>
 </html>
